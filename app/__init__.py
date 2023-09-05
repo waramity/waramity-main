@@ -10,7 +10,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.debug = False
+app.debug = True 
 app.config.from_object(Config)
 
 babel = Babel(app)
