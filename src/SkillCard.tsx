@@ -26,12 +26,11 @@ const Card: React.FC<CardProps> = ({ title, image }) => (
 
 interface CarouselProps {
   children: React.ReactNode;
-  active: number; // Add the active prop
-  setActive: React.Dispatch<React.SetStateAction<number>>; // Add the setActive prop
+  active: number;
+  setActive: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const Carousel: React.FC<CarouselProps> = ({ children, active, setActive }) => {
-  // const [active, setActive] = useState<number>(0);
   const count: number = React.Children.count(children);
 
   return (
@@ -86,10 +85,10 @@ interface CurrentCard {
 }
 
 const SkillCard: React.FC = () => {
-  const [cardsData, setCardsData] = useState<CardData[]>(); // Use a more specific type if possible
-  const [currentCard, setCurrentCard] = useState<CurrentCard>(); // Use the initial image source here
+  const [cardsData, setCardsData] = useState<CardData[]>();
+  const [currentCard, setCurrentCard] = useState<CurrentCard>();
 
-  const [active, setActive] = useState<number>(0); // Move active state here
+  const [active, setActive] = useState<number>(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -112,7 +111,7 @@ const SkillCard: React.FC = () => {
 
   return (
     <div className="row">
-      <div className="col-12 col-xl-6">
+      <div className="col-12 col-md-6">
         <ul className="nav nav-underline mb-3 flex-column">
           {cardsData ? (
             cardsData.map((item: CardData, i: number) => (
@@ -124,7 +123,7 @@ const SkillCard: React.FC = () => {
                         labels: item.labels,
                         images: item.images,
                       },
-                      i // Pass the current index here
+                      i
                     )
                   }
                   className={`nav-link text-secondary ${
@@ -146,7 +145,7 @@ const SkillCard: React.FC = () => {
           )}
         </ul>
       </div>
-      <div className="col-12 col-xl-6">
+      <div className="col-12 col-md-6">
         <div className="mt-5">
           <Carousel active={active} setActive={setActive}>
             {currentCard ? (
