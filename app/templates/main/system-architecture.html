@@ -29,12 +29,12 @@
 
 <div class="row justify-content-center">
   {% for system_architecture in system_architectures %}
-  <div class="col-{{system_architecture.images | length}} mb-3 p-3 text-center">
+  <div class="col-{{system_architecture.images | length}} mb-3 p-2 text-center">
     <div class="rounded-3 sa-col p-2">
       <h3 class="mb-4 mt-3 fs-5 display-6">
         {{system_architecture.title}}
       </h3>
-      <div class="d-inline-flex gap-4 mb-3 align-self-center">
+      <div class="d-inline-flex gap-2 mb-3 align-self-center">
         {% for sa_img in system_architecture.images %}
         <img
           src="/static/data/main/{{sa_img}}"
