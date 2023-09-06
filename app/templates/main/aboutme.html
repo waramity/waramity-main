@@ -1,36 +1,50 @@
-<style>
-  .intro-header::before {
-    transform: scaleX(0);
-    transform-origin: bottom right;
-  }
+<style></style>
 
-  .intro-header:hover::before {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
+<div class="position-relative mb-5" style="height: 40vw;">
+  <div class="position-absolute z-3" style="top: 35%; left: 5%;">
+    <h1 class="display-3">
+      {{_('I\'m Full stack Developer /')}}
+    </h1>
+    <h6 class="fw-lighter fst-italic">
+      {{_('* this website compatible for desktop')}}
+    </h6>
+  </div>
 
-  .intro-header::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    inset: 0 0 0 0;
-    background: #7f6ed2;
-    z-index: -1;
-    transition: transform 0.3s ease;
-  }
+  <div class="position-absolute z-3 end-0">
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+    <h1 class="display-3">
+      {{_('FULL STACK')}}
+    </h1>
+  </div>
 
-  .intro-header {
-    position: relative;
-  }
-</style>
-
-<h1 class="display-3 intro-header">
-  {{_('Hello, I\'m Full stack Developer')}}
-</h1>
-<h6 class="fw-lighter fst-italic">
-  {{_('* this website compatible for desktop')}}
-</h6>
+  <div class="position-absolute top-0 end-0" style="width: 60%;">
+    <img
+      src="/static/assets/images/bg-header.png"
+      alt=""
+      class="w-100 float-right"
+    />
+  </div>
+</div>
