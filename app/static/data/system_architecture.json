@@ -1,7 +1,7 @@
 [
   {
     "title": "Programming Languages",
-    "images": ["python.png", "javascript.png", "html.png", "css.png"]
+    "images": ["python.png", "javascript.png", "html.png", "css.webp"]
   },
   {
     "title": "Database",
@@ -9,7 +9,7 @@
   },
   {
     "title": "Cloud Services",
-    "images": ["docker.webp", "kubernetes.png", "digital-ocean.png"]
+    "images": ["docker.png", "kubernetes.png", "digital-ocean.png"]
   },
   {
     "title": "Auth",

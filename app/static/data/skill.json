@@ -6,7 +6,7 @@
       "python.png",
       "javascript.png",
       "html.png",
-      "css.png",
+      "css.webp",
       "swift.webp"
     ]
   },
@@ -56,7 +56,7 @@
     "title": "Cloud Services",
     "labels": ["Docker", "Kubertenes", "Digital Ocean", "Heroku", "GoDaddy"],
     "images": [
-      "docker.webp",
+      "docker.png",
       "kubernetes.png",
       "digital-ocean.png",
       "heroku.png",
