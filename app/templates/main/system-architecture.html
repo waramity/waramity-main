@@ -1,24 +1,49 @@
 <style media="screen">
-  img.sa-icon {
+  div.sa-col {
     -webkit-filter: grayscale(100%);
     -moz-filter: grayscale(100%);
     filter: grayscale(100%);
     transition: all 0.5s ease;
   }
 
-  img.sa-icon:hover {
+  div.sa-col:hover {
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
     filter: grayscale(0%);
+    background-color: #212529;
+  }
+
+  div.sa-col h3 {
+    color: #6c757d;
+    transition: all 0.5s ease;
+  }
+
+  div.sa-col:hover h3 {
+    color: #fff;
   }
 </style>
 
-<h2 class="text-white mb-5 text-center display-6">This website create from:</h2>
+<h2 class="text-white text-center display-6" style="margin-bottom: 4rem;">
+  This website create from:
+</h2>
 
-<div class="row">
-  {% for icon in system_architecture_icons %}
-  <div class="col">
-    <img src="/static/data/main/{{icon}}" class="w-100 sa-icon" />
+<div class="row justify-content-center">
+  {% for system_architecture in system_architectures %}
+  <div class="col-{{system_architecture.images | length}} mb-3 p-3 text-center">
+    <div class="rounded-3 sa-col p-2">
+      <h3 class="mb-4 mt-3 fs-5 display-6">
+        {{system_architecture.title}}
+      </h3>
+      <div class="d-inline-flex gap-4 mb-3 align-self-center">
+        {% for sa_img in system_architecture.images %}
+        <img
+          src="/static/data/main/{{sa_img}}"
+          class="sa-icon"
+          style="width: 3rem; height: 100%;"
+        />
+        {%endfor%}
+      </div>
+    </div>
   </div>
-  {% endfor %}
+  {%endfor%}
 </div>

@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Programming Languages",
+    "images": ["python.png", "javascript.png", "html.png", "css.png"]
+  },
+  {
+    "title": "Database",
+    "images": ["sqlalchemy.png", "mongo.jpg", "postgres.png"]
+  },
+  {
+    "title": "Cloud Services",
+    "images": ["docker.webp", "kubernetes.png", "digital-ocean.png"]
+  },
+  {
+    "title": "Auth",
+    "images": ["oauth.png"]
+  },
+  {
+    "title": "Web Development",
+    "images": [
+      "jquery.png",
+      "type-script.png",
+      "babel.png",
+      "flask.png",
+      "socket-io.png",
+      "react.png",
+      "vue.png",
+      "scss.png",
+      "tailwind.png",
+      "bootstrap.webp"
+    ]
+  }
+]
