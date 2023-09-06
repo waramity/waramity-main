@@ -112,7 +112,7 @@ const SkillCard: React.FC = () => {
 
   return (
     <div className="row">
-      <div className="col-6">
+      <div className="col-12 col-xl-6">
         <ul className="nav nav-underline mb-3 flex-column">
           {cardsData ? (
             cardsData.map((item: CardData, i: number) => (
@@ -146,7 +146,7 @@ const SkillCard: React.FC = () => {
           )}
         </ul>
       </div>
-      <div className="col-6">
+      <div className="col-12 col-xl-6">
         <div className="mt-5">
           <Carousel active={active} setActive={setActive}>
             {currentCard ? (
