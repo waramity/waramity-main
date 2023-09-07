@@ -16,8 +16,8 @@
   .spacer > h1 {
     position: absolute;
     color: transparent;
-    width: 500vw;
-    font-size: 5em;
+    width: 300vw;
+    font-size: 4em;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
   }
@@ -28,14 +28,55 @@
     font-size: 3em;
     color: white;
   }
+
   .imageWrapper {
+    width: 17%;
     position: absolute;
-    width: 250px;
-    height: 350px;
     background-color: transparent;
     overflow: hidden;
-    left: 10%;
+    left: 5%;
     margin-top: 0%;
+  }
+
+  .imageWrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://i.postimg.cc/85VDf3QR/pink-and-purple-wallpaper-1616403.jpg")
+      0 0 no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    animation: glitch-image 0.4s infinite;
+  }
+
+  @keyframes glitch-image {
+    0% {
+      background-position: 0 0;
+      filter: hue-rotate(90deg);
+    }
+
+    20% {
+      background-position: -1px 0;
+    }
+
+    40% {
+      background-position: 2px 0;
+    }
+
+    60% {
+      background-position: -4px 0;
+    }
+
+    80% {
+      background-position: 4px 4px;
+    }
+
+    100% {
+      background-position: 0 0;
+      filter: hue-rotate(360deg);
+    }
   }
 
   div.imageWrapper img {
@@ -55,7 +96,9 @@
   </h1>
   <div class="imageWrapper">
     <img
-      src="https://ih1.redbubble.net/image.3602762806.5650/flat,750x,075,f-pad,750x1000,f8f8f8.u7.jpg"
+      src="
+    /static/assets/images/profile-pink.png
+"
     />
   </div>
 </section>
