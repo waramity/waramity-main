@@ -151,11 +151,67 @@
   }
 </style>
 
+<style media="screen">
+  .typewriter h1 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: 0.15em solid white;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: white;
+    }
+  }
+
+  #blink {
+    text-decoration: none;
+    color: #14151a;
+    transition: 0.5s;
+    animation-duration: 3s;
+    animation-name: stretch;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes stretch {
+    50% {
+      background-color: white;
+    }
+    100% {
+      background-color: #f8f9fa;
+    }
+  }
+</style>
+
 <div class="position-relative mb-5" style="height: 40vw;">
   <div class="position-absolute z-3" style="top: 35%; left: 5%;">
-    <h1 class="display-3">
-      {{_('I\'m Full stack Developer /')}}
-    </h1>
+    <div class="typewriter">
+      <h1 class="display-5 fw-bold">
+        {{_('I\'m')}}
+        <span id="blink">
+          {{_('Full Stack Developer. ')}}
+        </span>
+      </h1>
+    </div>
     <h6 class="fw-lighter fst-italic">
       {{_('* this website compatible for desktop')}}
     </h6>
