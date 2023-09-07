@@ -1,0 +1,90 @@
+<style media="screen">
+  .spacer {
+    width: 100vw;
+    height: 15vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10vw;
+  }
+
+  .spacer > h1 {
+    position: absolute;
+    color: transparent;
+    width: 500vw;
+    font-size: 5em;
+    font-weight: 900;
+    font-family: "Raleway";
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+  }
+
+  .spacer h2 {
+    font-family: "Raleway";
+    font-weight: 900;
+    font-size: 3em;
+    color: white;
+  }
+  .imageWrapper {
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    background-color: transparent;
+    overflow: hidden;
+    left: 10%;
+    margin-top: 0%;
+  }
+
+  div.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .spacer:nth-child(even) {
+    background-color: #121212;
+  }
+</style>
+
+<section class="spacer">
+  <h1 id="scrollingText">
+    HELLO WORLD IS VERY EASY FOR ME THANK YOU FOR WATCHING
+  </h1>
+  <div class="imageWrapper">
+    <img
+      src="https://ih1.redbubble.net/image.3602762806.5650/flat,750x,075,f-pad,750x1000,f8f8f8.u7.jpg"
+    />
+  </div>
+</section>
+
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<script type="text/javascript">
+  window.addEventListener("DOMContentLoaded", function () {
+    setTimeout(function () {
+      gsap.registerPlugin(ScrollTrigger);
+
+      let tl2 = gsap.timeline();
+      tl2.to("#scrollingText", {
+        x: 1000,
+        duration: 30,
+        repeat: -1,
+        ease: "linear",
+      });
+
+      let tl = gsap.timeline();
+      tl.to("#scrollingText", {
+        xPercent: 10,
+        scrollTrigger: {
+          trigger: "#scrollingText",
+          scrub: 1,
+        },
+      });
+    }, 5000); // 2000 milliseconds (2 seconds) delay
+  });
+</script>
