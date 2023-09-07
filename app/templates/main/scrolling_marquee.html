@@ -1,7 +1,7 @@
 <style media="screen">
   .spacer {
     width: 100vw;
-    height: 15vw;
+    height: 10vw;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -10,6 +10,7 @@
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 10vw;
+    margin-top: -3vw;
   }
 
   .spacer > h1 {
@@ -17,8 +18,6 @@
     color: transparent;
     width: 500vw;
     font-size: 5em;
-    font-weight: 900;
-    font-family: "Raleway";
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
   }
@@ -51,8 +50,8 @@
 </style>
 
 <section class="spacer">
-  <h1 id="scrollingText">
-    HELLO WORLD IS VERY EASY FOR ME THANK YOU FOR WATCHING
+  <h1 id="scrollingText" class="fw-bold">
+    HELLO WORLD IS VERY EASY FOR HIRE ME
   </h1>
   <div class="imageWrapper">
     <img
@@ -72,19 +71,19 @@
       let tl2 = gsap.timeline();
       tl2.to("#scrollingText", {
         x: 1000,
-        duration: 30,
+        duration: 50,
         repeat: -1,
         ease: "linear",
       });
 
       let tl = gsap.timeline();
       tl.to("#scrollingText", {
-        xPercent: 10,
+        xPercent: 5,
         scrollTrigger: {
           trigger: "#scrollingText",
           scrub: 1,
         },
       });
-    }, 5000); // 2000 milliseconds (2 seconds) delay
+    }, 4000); // 2000 milliseconds (2 seconds) delay
   });
 </script>
