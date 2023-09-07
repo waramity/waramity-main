@@ -128,6 +128,27 @@
     -webkit-text-stroke: 2px #fff;
     line-height: 0.7222;
   }
+
+  .full-stack-glitch {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    animation: glitch 1s linear infinite;
+    line-height: 0.7222;
+  }
+
+  @keyframes glitch {
+    2%,
+    64% {
+      transform: translate(2px, 0) skew(0deg);
+    }
+    4%,
+    60% {
+      transform: translate(-2px, 0) skew(2deg);
+    }
+    62% {
+      transform: translate(0, 0) skew(50deg);
+    }
+  }
 </style>
 
 <div class="position-relative mb-5" style="height: 40vw;">
@@ -141,17 +162,17 @@
   </div>
 
   <div class="position-absolute z-3 end-0 bottom-50">
-    <h3 class="display-1 full-stack-stroke">
+    <h3 class="display-1 full-stack-stroke fw-bold">
       {{_('FULL STACK')}}
     </h3>
-    <h3 class="display-1 full-stack-stroke">
+    <h3 class="display-1 full-stack-glitch fw-bold">
       {{_('FULL STACK')}}
     </h3>
 
-    <h3 class="display-1 full-stack-stroke">
+    <h3 class="display-1 full-stack-stroke fw-bold">
       {{_('FULL STACK')}}
     </h3>
-    <h3 class="display-1 full-stack-stroke">
+    <h3 class="display-1 full-stack-stroke fw-bold">
       {{_('FULL STACK')}}
     </h3>
   </div>
