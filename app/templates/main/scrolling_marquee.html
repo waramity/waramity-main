@@ -1,16 +1,22 @@
 <style media="screen">
   .spacer {
     width: 100vw;
-    height: 10vw;
+    height: 6vw;
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 10vw;
     margin-top: -3vw;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 12px #14151a, 0 0 0 13px #fff;
+    transition: box-shadow 0.5s ease-in-out, height 1s ease-in-out; /* Add transition */
+  }
+
+  .spacer:hover {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 20px #14151a, 0 0 0 21px #fff; /* Change the box-shadow on hover */
+    height: 4vw;
   }
 
   .spacer > h1 {
@@ -22,20 +28,15 @@
     -webkit-text-stroke-color: white;
   }
 
-  .spacer h2 {
-    font-family: "Raleway";
-    font-weight: 900;
-    font-size: 3em;
-    color: white;
-  }
-
   .imageWrapper {
     width: 17%;
     position: absolute;
     background-color: transparent;
     overflow: hidden;
     left: 5%;
-    margin-top: 0%;
+    margin-bottom: 7%;
+    animation: open_anim 0.1s 3.3s linear forwards;
+    opacity: 0;
   }
 
   .imageWrapper::before {
@@ -47,7 +48,7 @@
     background: url("https://i.postimg.cc/85VDf3QR/pink-and-purple-wallpaper-1616403.jpg")
       0 0 no-repeat;
     background-size: cover;
-    opacity: 0.1;
+    opacity: 0.05;
     animation: glitch-image 0.4s infinite;
   }
 
@@ -114,7 +115,7 @@
       let tl2 = gsap.timeline();
       tl2.to("#scrollingText", {
         x: 1000,
-        duration: 50,
+        duration: 300,
         repeat: -1,
         ease: "linear",
       });
