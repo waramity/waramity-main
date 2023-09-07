@@ -1,4 +1,26 @@
 <style>
+  .img_header {
+    mask-image: linear-gradient(
+      var(to right),
+      hsl(0 0% 0% / 0),
+      hsl(0 0% 0% / 1) 20%,
+      hsl(0 0% 0% / 1) 80%,
+      hsl(0 0% 0% / 0)
+    );
+    animation: open_anim 1s 3s linear forwards;
+    opacity: 0;
+  }
+
+  @keyframes open_anim {
+    0% {
+      opacity: 0;
+    }
+    30%,
+    100% {
+      opacity: 1;
+    }
+  }
+
   .glitch {
     position: relative;
     overflow: hidden;
@@ -237,7 +259,7 @@
     <img
       src="/static/assets/images/bg-header.png"
       alt=""
-      class="w-100 float-right"
+      class="w-100 float-right img_header"
     />
     <div class="glitch__layers">
       <div class="glitch__layer"></div>
