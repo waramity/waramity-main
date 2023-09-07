@@ -1,41 +1,66 @@
 <style media="screen">
   .spacer {
     width: 100vw;
-    height: 6vw;
-    background-color: black;
+    height: 0.5vw;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 10vw;
-    margin-top: -3vw;
-    box-shadow: 0 0 0 1px #fff, 0 0 0 12px #14151a, 0 0 0 13px #fff;
-    transition: box-shadow 0.5s ease-in-out, height 1s ease-in-out; /* Add transition */
+    margin-top: -2vw;
+    margin-bottom: 3vw;
+    animation: spacer-show 0.5s 2s ease-in-out forwards,
+      spacer-loading 2.5s 0.5s ease-in-out,
+      spacer-shadow 2.5s 0.5s ease-in-out forwards;
   }
 
-  .spacer:hover {
-    box-shadow: 0 0 0 1px #fff, 0 0 0 20px #14151a, 0 0 0 21px #fff; /* Change the box-shadow on hover */
-    height: 4vw;
+  @keyframes spacer-loading {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  @keyframes spacer-show {
+    0% {
+      height: 0.5vw;
+    }
+
+    100% {
+      height: 3vw;
+    }
+  }
+
+  @keyframes spacer-shadow {
+    0% {
+      box-shadow: 0 0 0 1px #14151a, 0 0 0 3px #fff;
+    }
+
+    100% {
+      box-shadow: 0 0 0 9px #14151a, 0 0 0 11px #fff;
+    }
   }
 
   .spacer > h1 {
     position: absolute;
-    color: transparent;
+    color: #14151a;
     width: 300vw;
     font-size: 4em;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
+    -webkit-text-stroke-color: black;
   }
 
   .imageWrapper {
-    width: 17%;
+    width: 14%;
     position: absolute;
     background-color: transparent;
     overflow: hidden;
     left: 5%;
     margin-bottom: 7%;
-    animation: open_anim 0.1s 3.3s linear forwards;
+    animation: open_anim 0.3s 3.3s linear forwards;
     opacity: 0;
   }
 
@@ -87,7 +112,7 @@
   }
 
   .spacer:nth-child(even) {
-    background-color: #121212;
+    background-color: #fff;
   }
 </style>
 
@@ -115,7 +140,7 @@
       let tl2 = gsap.timeline();
       tl2.to("#scrollingText", {
         x: 1000,
-        duration: 300,
+        duration: 180,
         repeat: -1,
         ease: "linear",
       });
