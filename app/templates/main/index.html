@@ -1,11 +1,12 @@
 {% extends "common/_base.html" %} {% include "common/cursor.html" %} {% block
-content %} {% include "main/aboutme.html" %} {% include
-"main/marquee-header.html" %}
-
+content %} {% include "main/aboutme.html" %}
 <div class="container mt-5">
   <div id="experience-section">
     {% include "main/experience.html" %}
   </div>
+</div>
+
+<div class="container mt-5">
   <div class="p-5" id="skill-section">
     {% include "main/skill.html" %}
   </div>
@@ -22,4 +23,5 @@ content %} {% include "main/aboutme.html" %} {% include
 <div id="work-section">
   {% include "main/work.html" %}
 </div>
-{% include "main/want-to-up.html" %} {%endblock%}
+{% include "main/want-to-up.html" %} {% include "main/marquee-header.html" %}
+{%endblock%}
