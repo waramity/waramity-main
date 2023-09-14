@@ -15,8 +15,8 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, image }) => (
   <div className="skill-card row p-5">
-    <div className="col-12 text-center pt-3 mt-2 mb-2">
-      <img src={image} alt={title} className="w-50" />
+    <div className="col-12 text-center pt-3 mt-2 mb-1">
+      <img src={image} alt={title} className="image-card" />
     </div>
     <div className="col-12">
       <h3 className="text-white fw-light text-center">{title}</h3>
