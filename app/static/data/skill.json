@@ -38,12 +38,12 @@
   {
     "title": "Mobile Development",
     "labels": ["React Native", "Expo"],
-    "images": ["react-native.jpeg", "expo.png"]
+    "images": ["react-native.png", "expo.png"]
   },
   {
     "title": "Database",
-    "labels": ["SQLAlchemy", "Mongo DB", "PostgreSQL"],
-    "images": ["sqlalchemy.png", "mongo.jpg", "postgres.png"]
+    "labels": ["SQLAlchemy", "Mongo DB", "PostgreSQL", "SQLite"],
+    "images": ["sqlalchemy.png", "mongo.jpg", "postgres.png", "sqlite.png"]
   },
   {
     "title": "Machine Learning & AI",
@@ -52,9 +52,17 @@
   },
   {
     "title": "Cloud Services",
-    "labels": ["Docker", "Kubertenes", "Digital Ocean", "Heroku", "GoDaddy"],
+    "labels": [
+      "Docker",
+      "Docker Compose",
+      "Kubertenes",
+      "Digital Ocean",
+      "Heroku",
+      "GoDaddy"
+    ],
     "images": [
       "docker.png",
+      "docker-compose.png",
       "kubernetes.png",
       "digital-ocean.png",
       "heroku.png",

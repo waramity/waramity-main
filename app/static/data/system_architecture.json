@@ -5,11 +5,11 @@
   },
   {
     "title": "Database",
-    "images": ["sqlalchemy.png", "mongo.jpg", "postgres.png"]
+    "images": ["sqlalchemy.png", "mongo.jpg", "sqlite.png"]
   },
   {
     "title": "Cloud Services",
-    "images": ["docker.png", "kubernetes.png", "digital-ocean.png"]
+    "images": ["docker.png", "docker-compose.png", "digital-ocean.png"]
   },
   {
     "title": "Auth",
@@ -26,7 +26,7 @@
       "vue.png",
       "scss.png",
       "tailwind.png",
-      "bootstrap.webp"
+      "bootstrap.png"
     ]
   }
 ]
