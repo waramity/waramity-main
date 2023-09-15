@@ -1,13 +1,14 @@
 <style media="screen">
   .spacer {
-    width: 100vw;
+    <!-- width: 100vw; -->
     height: 0.5vw;
     background-color: #fff;
     display: flex;
+
+    position: absolute;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    text-align: center;
     margin-top: -2vw;
     margin-bottom: 3vw;
     animation: spacer-show 0.25s 2.7s linear forwards,
@@ -34,9 +35,8 @@
   }
 
   .spacer > h1 {
-    position: absolute;
     color: #14151a;
-    width: 300vw;
+    width: 100vw;
     font-size: 4em;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
@@ -106,7 +106,7 @@
 </style>
 
 <section class="spacer">
-  <h1 id="scrollingText" class="fw-bold left-0 float-left overflow-hidden">
+  <h1 id="scrollingText" class="fw-bold position-relative">
     Experience: 3+ yrs | Learn: 13+ yrs | Passion: dev | Experience: 3+ yrs |
     Learning: 13+ yrs | Passion: dev | Experience: 3+ yrs | Learning: 13+ yrs |
     Passion: dev |
