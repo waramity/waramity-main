@@ -34,7 +34,7 @@ def index():
     session['platform'] = 'none'
     skill_data = load_json('data/skill.json')
     system_architectures = load_json('data/system_architecture.json')
-    all_icons = ["python.png", "javascript.png", "html.png", "css.webp", "swift.webp", "jquery.png", "type-script.png", "flask.png", "socket-io.png", "react.png", "vue.png", "scss.png", "tailwind.png", "bootstrap.webp", "react-native.jpeg", "expo.png", "mongo.jpg", "postgres.png", "stable-diffusion.png", "tensorflow.png", "docker.png", "kubernetes.png", "digital-ocean.png", "heroku.png", "go-daddy.png", "oauth.png", "line-official-account.png"]
+    all_icons = ["python.png", "javascript.png", "html.png", "css.webp", "swift.webp", "jquery.png", "type-script.png", "flask.png", "socket-io.png", "react.png", "vue.png", "scss.png", "tailwind.png", "bootstrap.webp", "react-native.png", "expo.png", "mongo.jpg", "postgres.png", "stable-diffusion.png", "tensorflow.png", "docker.png", "kubernetes.png", "digital-ocean.png", "heroku.png", "go-daddy.png", "oauth.png", "line-official-account.png"]
     return render_template('main/index.html', title=_('waramity portfolio'), skill_data=skill_data, system_architectures=system_architectures, all_icons=all_icons)
 
 # @main.route('/get_skill_data/<int:index>')
