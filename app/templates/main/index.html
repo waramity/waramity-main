@@ -5,19 +5,33 @@
 </style>
 
 {% extends "common/_base.html" %} {% include "common/cursor.html" %} {% block
-content %} {% include "main/aboutme.html" %} {% include
-"main/scrolling_marquee.html" %}
+content %}
+
+<!-- ################### -->
+
+{% include "main/aboutme.html" %}
+<!-- ################### -->
+
+{% include "main/scrolling_marquee.html" %}
+
+<!-- ################### -->
+
 <div class="container divide-section">
   <div id="experience-section">
     {% include "main/experience.html" %}
   </div>
 </div>
 
-<div class="container mt-5">
+<!-- ################### -->
+
+<!-- <div class="container mt-5">
   <div class="p-5" id="skill-section">
     {% include "main/skill.html" %}
   </div>
+</div> -->
+<!-- ################### -->
 
+<div class="container mt-5">
   <div
     id="system-architecture-section"
     class="me-3 ms-3"
@@ -26,7 +40,7 @@ content %} {% include "main/aboutme.html" %} {% include
     {% include "main/system-architecture.html" %}
   </div>
 </div>
-
+<!-- ################### -->
 <div id="work-section">
   {% include "main/work.html" %}
 </div>

@@ -11,7 +11,7 @@
     margin-top: -2vw;
     margin-bottom: 3vw;
     animation: spacer-show 0.25s 2.7s linear forwards,
-      spacer-loading 2.5s 0.5s ease-in-out;
+      spacer-loading 2.5s 0.5s ease-in-out forwards;
   }
 
   @keyframes spacer-loading {
@@ -106,7 +106,7 @@
 </style>
 
 <section class="spacer">
-  <h1 id="scrollingText" class="fw-bold">
+  <h1 id="scrollingText" class="fw-bold left-0 float-left overflow-hidden">
     Experience: 3+ yrs | Learn: 13+ yrs | Passion: dev | Experience: 3+ yrs |
     Learning: 13+ yrs | Passion: dev | Experience: 3+ yrs | Learning: 13+ yrs |
     Passion: dev |
@@ -130,8 +130,8 @@
 
       let tl2 = gsap.timeline();
       tl2.to("#scrollingText", {
-        x: 1000,
-        duration: 180,
+        x: -1000,
+        duration: 120,
         repeat: -1,
         ease: "linear",
       });
