@@ -17,8 +17,18 @@ $card-height: 20rem;
 }
 
 .image-card {
-  width: 100px;
-  height: 100px;
+  width: $card-width/3;
+  height: $card-height/3;
+
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    width: $card-width/3.77;
+    height: $card-height/4;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: $card-width/4.33;
+    height: $card-height/4.33;
+  }
 }
 
 .skill-card {
@@ -97,6 +107,17 @@ $card-height: 20rem;
   height: $card-height;
   perspective: 500px;
   transform-style: preserve-3d;
+
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    width: $card-width/1.1;
+    height: $card-height/1.1;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: $card-width/1.2;
+    height: $card-height/1.2;
+    margin-left: 4rem;
+  }
 }
 
 .card-container {

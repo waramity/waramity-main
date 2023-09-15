@@ -145,22 +145,20 @@ const SkillCard: React.FC = () => {
           )}
         </ul>
       </div>
-      <div className="col-12 col-md-6">
-        <div className="mt-5">
-          <Carousel active={active} setActive={setActive}>
-            {currentCard ? (
-              currentCard.labels.map((label: string, i: number) => (
-                <Card
-                  key={i}
-                  title={label}
-                  image={"/static/data/main/" + currentCard.images[i]}
-                />
-              ))
-            ) : (
-              <p>Loading data...</p>
-            )}
-          </Carousel>
-        </div>
+      <div className="col-12 col-md-6 mt-5">
+        <Carousel active={active} setActive={setActive}>
+          {currentCard ? (
+            currentCard.labels.map((label: string, i: number) => (
+              <Card
+                key={i}
+                title={label}
+                image={"/static/data/main/" + currentCard.images[i]}
+              />
+            ))
+          ) : (
+            <p>Loading data...</p>
+          )}
+        </Carousel>
       </div>
     </div>
   );
