@@ -27,17 +27,21 @@
         0 0 50px #565b70, 0 0 70px #ffffff;
     }
   }
+
+  @media (max-width: 768px) {
+    .want-to-up-btn {
+      font-size: 10vw;
+    }
+  }
+
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    .want-to-up-btn {
+      font-size: 7vw;
+    }
+  }
 </style>
-<div class="section padding-top-bottom over-hide background-dark">
-  <div class="container">
-    <div class="row">
-      <div
-        class="col-12 text-center"
-        data-scroll-reveal="enter bottom move 30px over 0.5s after 0.2s"
-      >
-        <a href="#" class="want-to-up-btn cursor-link">want to go up?</a>
-      </div>
-    </div>
-  </div>
+<div
+  class="section padding-top-bottom over-hide background-dark container text-center"
+>
+  <a href="#" class="want-to-up-btn cursor-link">want to go up?</a>
 </div>
-<style media="screen"></style>
