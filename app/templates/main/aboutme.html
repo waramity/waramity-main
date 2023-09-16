@@ -20,25 +20,6 @@
     width: 60%;
   }
 
-  @media (max-width: 768px) {
-    .glitch {
-      width: 100%;
-    }
-    .full-stack-texts h3 {
-      font-size: 2rem;
-    }
-  }
-
-  @media screen and (max-width: 1023px) and (min-width: 768px) {
-    .glitch {
-      width: 80%;
-    }
-
-    .full-stack-texts h3 {
-      font-size: 2.5rem;
-    }
-  }
-
   .glitch img {
     position: relative;
     z-index: 1;
@@ -238,8 +219,53 @@
   }
 </style>
 
-<div class="position-relative mb-5" style="height: 35vw; overflow-x: hidden;">
-  <div class="position-absolute z-3" style="top: 35%; left: 5%;">
+<style media="screen">
+  .im-fullstack {
+    top: 35%;
+    left: 5%;
+  }
+
+  @media (max-width: 768px) {
+    .glitch {
+      width: 100%;
+    }
+    .full-stack-texts h3 {
+      font-size: 2rem;
+    }
+    .typewriter h1 {
+      font-size: 1.2rem;
+    }
+    .caution h6 {
+      font-size: 0.8rem;
+    }
+    .im-fullstack {
+      top: 90%;
+      left: 5%;
+    }
+  }
+
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    .glitch {
+      width: 80%;
+    }
+    .full-stack-texts h3 {
+      font-size: 2.5rem;
+    }
+    .typewriter h1 {
+      font-size: 2.5rem;
+    }
+    .caution h6 {
+      font-size: 1rem;
+    }
+    .im-fullstack {
+      top: 80%;
+      left: 5%;
+    }
+  }
+</style>
+
+<div class="position-relative mb-5" style="height: 35vw;">
+  <div class="position-absolute z-3 im-fullstack">
     <div class="typewriter">
       <h1 class="display-5 fw-bold">
         {{_('I\'m')}}
@@ -248,9 +274,11 @@
         </span>
       </h1>
     </div>
-    <h6 class="fw-lighter fst-italic">
-      {{_('* this website compatible for desktop')}}
-    </h6>
+    <div class="caution">
+      <h6 class="fw-lighter fst-italic">
+        {{_('* this website compatible for desktop')}}
+      </h6>
+    </div>
   </div>
 
   <div class="position-absolute z-3 end-0 bottom-50 full-stack-texts">
