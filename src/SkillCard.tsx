@@ -126,7 +126,7 @@ const SkillCard: React.FC = () => {
                       i
                     )
                   }
-                  className={`nav-link text-secondary ${
+                  className={`nav-link text-secondary skill-btn${
                     i === activeIndex ? "active" : ""
                   }`}
                 >

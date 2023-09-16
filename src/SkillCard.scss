@@ -203,3 +203,9 @@ $card-height: 20rem;
     font-size: 1rem;
   }
 }
+
+.skill-btn {
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
