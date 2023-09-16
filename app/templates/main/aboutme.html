@@ -17,7 +17,21 @@
   .glitch {
     position: relative;
     overflow: hidden;
+    width: 60%;
   }
+
+  @media (max-width: 768px) {
+    .glitch {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 1023px) and (min-width: 768px) {
+    .glitch {
+      width: 80%;
+    }
+  }
+
   .glitch img {
     position: relative;
     z-index: 1;
@@ -248,7 +262,7 @@
     </h3>
   </div>
 
-  <div class="position-absolute top-0 end-0 glitch" style="width: 60%;">
+  <div class="position-absolute top-0 end-0 glitch">
     <img
       src="/static/assets/images/bg-header.png"
       alt=""
