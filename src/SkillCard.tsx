@@ -115,7 +115,7 @@ const SkillCard: React.FC = () => {
         <ul className="nav nav-underline mb-3 flex-column">
           {cardsData ? (
             cardsData.map((item: CardData, i: number) => (
-              <li className="nav-item" role="presentation">
+              <li className="nav-item skill-topic" role="presentation">
                 <button
                   onClick={() =>
                     handleCardChange(
@@ -129,12 +129,6 @@ const SkillCard: React.FC = () => {
                   className={`nav-link text-secondary ${
                     i === activeIndex ? "active" : ""
                   }`}
-                  style={
-                    {
-                      fontSize: "1.33rem",
-                      cursor: "none",
-                    } as CSSProperties
-                  }
                 >
                   {item.title}
                 </button>
