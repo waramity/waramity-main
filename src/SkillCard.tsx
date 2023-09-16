@@ -3,6 +3,10 @@ import ReactDOM from "react-dom";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
+import Select from "react-select";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 import "./SkillCard.scss";
 
 const CARDS: number = 10;
@@ -84,13 +88,21 @@ interface CurrentCard {
   labels: string[];
 }
 
+interface MobileOptions {
+  value: string;
+  label: string;
+}
+
 const SkillCard: React.FC = () => {
   const [cardsData, setCardsData] = useState<CardData[]>();
   const [currentCard, setCurrentCard] = useState<CurrentCard>();
+  const [mobileOptions, setMobileOptions] = useState<MobileOptions[]>();
 
   const [active, setActive] = useState<number>(0);
 
   const [activeIndex, setActiveIndex] = useState(0);
+
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     fetch("/en/get_skill_nav")
@@ -98,6 +110,7 @@ const SkillCard: React.FC = () => {
       .then((data) => {
         setCardsData(data);
         setCurrentCard({ labels: data[0].labels, images: data[0].images });
+        generateMobileOptions(data);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -109,53 +122,97 @@ const SkillCard: React.FC = () => {
     setActiveIndex(index);
   };
 
-  return (
-    <div className="row">
-      <div className="col-12 col-md-6">
-        <ul className="nav nav-underline mb-3 flex-column">
-          {cardsData ? (
-            cardsData.map((item: CardData, i: number) => (
-              <li className="nav-item skill-topic" role="presentation">
-                <button
-                  onClick={() =>
-                    handleCardChange(
-                      {
-                        labels: item.labels,
-                        images: item.images,
-                      },
-                      i
-                    )
-                  }
-                  className={`nav-link text-secondary skill-btn ${
-                    i === activeIndex ? "active" : ""
-                  }`}
-                >
-                  {item.title}
-                </button>
-              </li>
-            ))
-          ) : (
-            <p>Loading data...</p>
-          )}
-        </ul>
+  const handleResize = () => {
+    setViewportWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const generateMobileOptions = (data: CardData[]) => {
+    const mobileOptions = data.map((item, i) => ({
+      value: item.title,
+      label: item.title,
+    }));
+
+    setMobileOptions(mobileOptions);
+  };
+
+  if (viewportWidth < 768) {
+    return (
+      <div>
+        {mobileOptions ? (
+          <Select options={mobileOptions} />
+        ) : (
+          <p>Loading data...</p>
+        )}
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={3}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+        </Swiper>
       </div>
-      <div className="col-12 col-md-6 mt-5">
-        <Carousel active={active} setActive={setActive}>
-          {currentCard ? (
-            currentCard.labels.map((label: string, i: number) => (
-              <Card
-                key={i}
-                title={label}
-                image={"/static/data/main/" + currentCard.images[i]}
-              />
-            ))
-          ) : (
-            <p>Loading data...</p>
-          )}
-        </Carousel>
+    );
+  } else {
+    return (
+      <div className="row">
+        <div className="col-12 col-md-6">
+          <ul className="nav nav-underline mb-3 flex-column">
+            {cardsData ? (
+              cardsData.map((item: CardData, i: number) => (
+                <li className="nav-item skill-topic" role="presentation">
+                  <button
+                    onClick={() =>
+                      handleCardChange(
+                        {
+                          labels: item.labels,
+                          images: item.images,
+                        },
+                        i
+                      )
+                    }
+                    className={`nav-link text-secondary skill-btn ${
+                      i === activeIndex ? "active" : ""
+                    }`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))
+            ) : (
+              <p>Loading data...</p>
+            )}
+          </ul>
+        </div>
+        <div className="col-12 col-md-6 mt-5">
+          <Carousel active={active} setActive={setActive}>
+            {currentCard ? (
+              currentCard.labels.map((label: string, i: number) => (
+                <Card
+                  key={i}
+                  title={label}
+                  image={"/static/data/main/" + currentCard.images[i]}
+                />
+              ))
+            ) : (
+              <p>Loading data...</p>
+            )}
+          </Carousel>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default SkillCard;
