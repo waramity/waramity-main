@@ -147,7 +147,7 @@ const SkillCard: React.FC = () => {
     return (
       <div>
         {mobileOptions ? (
-          <Select options={mobileOptions} />
+          <Select defaultValue={mobileOptions[0]} options={mobileOptions} />
         ) : (
           <p>Loading data...</p>
         )}
