@@ -22,7 +22,7 @@ $card-height: 20rem;
 
   @media screen and (max-width: 1023px) and (min-width: 768px) {
     width: $card-width/3.77;
-    height: $card-height/4;
+    height: $card-height/3.77;
   }
 
   @media screen and (max-width: 767px) {
@@ -114,8 +114,8 @@ $card-height: 20rem;
   }
 
   @media screen and (max-width: 767px) {
-    width: $card-width/1.2;
-    height: $card-height/1.2;
+    width: $card-width/1.4;
+    height: $card-height/1.4;
     margin-left: 4rem;
   }
 }
@@ -176,5 +176,9 @@ $card-height: 20rem;
   &.right {
     right: 0;
     transform: translateX(100%) translatey(-50%);
+  }
+
+  @media screen and (max-width: 767px) {
+    font-size: 3rem;
   }
 }
