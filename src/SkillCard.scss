@@ -198,4 +198,8 @@ $card-height: 20rem;
 .skill-topic {
   font-size: 1.33rem;
   cursor: none;
+
+  @media screen and (max-width: 767px) {
+    font-size: 1rem;
+  }
 }
