@@ -130,6 +130,10 @@ $card-height: 20rem;
     translateX(calc(var(--direction) * -5rem));
   filter: blur(calc(var(--abs-offset) * 1rem));
   transition: all 0.3s ease-out;
+  @media screen and (max-width: 767px) {
+    transform: none;
+    filter: none;
+  }
 }
 
 .skill-card {
