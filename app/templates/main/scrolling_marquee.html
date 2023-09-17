@@ -138,6 +138,15 @@
         repeat: -1,
         ease: "linear",
       });
+
+      let tl = gsap.timeline();
+      tl.to("#scrollingText", {
+        xPercent: 5,
+        scrollTrigger: {
+          trigger: "#scrollingText",
+          scrub: 1,
+        },
+      });
     }, 4000); // 2000 milliseconds (2 seconds) delay
   });
 </script>
