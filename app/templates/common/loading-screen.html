@@ -72,18 +72,13 @@
 </script>
 
 <script>
-  // main.js
-
-  // Wait for the entire page to load
   window.addEventListener("load", function () {
-    // Hide the loading screen
     setTimeout(function () {
       var loadingScreen = document.getElementById("loading-screen");
       if (loadingScreen) {
         loadingScreen.remove();
       }
 
-      // Show the main content
       var mainContent = document.getElementById("main-content");
       mainContent.style.display = "block";
       mainContent.classList.add("animate__animated", "animate__fadeInDown"); // Add the fade-in classes
