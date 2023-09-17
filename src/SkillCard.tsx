@@ -183,19 +183,19 @@ const SkillCard: React.FC = () => {
             options={mobileOption}
             styles={mobileOptionStyles}
             onChange={handleSelectChange}
-            className="mx-3 mb-5 z-3"
+            className="mx-3 mb-4 z-3"
           />
         ) : (
           <p>Loading data...</p>
         )}
 
         <Swiper
-          spaceBetween={30}
+          spaceBetween={15}
           slidesPerView={2}
           centeredSlides={true}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          className="px-4"
+          className="px-3 pt-3"
         >
           {currentCard ? (
             currentCard.labels.map((label: string, i: number) => (
@@ -204,7 +204,7 @@ const SkillCard: React.FC = () => {
                   src={"/static/data/main/" + currentCard.images[i]}
                   className="w-100 mb-4"
                 />
-                <p className="text-center display-6 fs-3">{label}</p>
+                <p className="text-center display-6 fs-5 mb-0">{label}</p>
               </SwiperSlide>
             ))
           ) : (
