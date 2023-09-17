@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
 
-import Select from "react-select";
+import Select, { StylesConfig } from "react-select";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
@@ -88,15 +88,69 @@ interface CurrentCard {
   labels: string[];
 }
 
-interface MobileOptions {
+interface MobileOption {
   value: string;
   label: string;
 }
 
+const mobileOptionStyles: StylesConfig<MobileOption> = {
+  option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    return {
+      ...styles,
+      color: isDisabled ? "#ccc" : isSelected ? "white" : "black",
+      backgroundColor: isDisabled
+        ? undefined
+        : isSelected
+        ? "black"
+        : isFocused
+        ? "white"
+        : undefined,
+      ":active": {
+        ...styles[":active"],
+        backgroundColor: !isDisabled
+          ? isSelected
+            ? "black"
+            : "white"
+          : undefined,
+      },
+    };
+    //   return {
+    //     ...styles,
+    //     backgroundColor: isDisabled
+    //       ? undefined
+    //       : isSelected
+    //       ? data.color
+    //       : isFocused
+    //       ? color.alpha(0.1).css()
+    //       : undefined,
+    //     color: isDisabled
+    //       ? "#ccc"
+    //       : isSelected
+    //       ? chroma.contrast(color, "white") > 2
+    //         ? "white"
+    //         : "black"
+    //       : data.color,
+    //     cursor: isDisabled ? "not-allowed" : "default",
+    //
+    //     ":active": {
+    //       ...styles[":active"],
+    //       backgroundColor: !isDisabled
+    //         ? isSelected
+    //           ? data.color
+    //           : color.alpha(0.3).css()
+    //         : undefined,
+    //     },
+    //   };
+  },
+  // input: (styles) => ({ ...styles, ...dot() }),
+  // placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
+  // singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
+};
+
 const SkillCard: React.FC = () => {
   const [cardsData, setCardsData] = useState<CardData[]>();
   const [currentCard, setCurrentCard] = useState<CurrentCard>();
-  const [mobileOptions, setMobileOptions] = useState<MobileOptions[]>();
+  const [mobileOption, setMobileOption] = useState<MobileOption[]>();
 
   const [active, setActive] = useState<number>(0);
 
@@ -110,7 +164,7 @@ const SkillCard: React.FC = () => {
       .then((data) => {
         setCardsData(data);
         setCurrentCard({ labels: data[0].labels, images: data[0].images });
-        generateMobileOptions(data);
+        generateMobileOption(data);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -134,20 +188,24 @@ const SkillCard: React.FC = () => {
     };
   }, []);
 
-  const generateMobileOptions = (data: CardData[]) => {
-    const mobileOptions = data.map((item, i) => ({
+  const generateMobileOption = (data: CardData[]) => {
+    const mobileOption = data.map((item, i) => ({
       value: item.title,
       label: item.title,
     }));
 
-    setMobileOptions(mobileOptions);
+    setMobileOption(mobileOption);
   };
 
   if (viewportWidth < 768) {
     return (
       <div>
-        {mobileOptions ? (
-          <Select defaultValue={mobileOptions[0]} options={mobileOptions} />
+        {mobileOption ? (
+          <Select
+            defaultValue={mobileOption[0]}
+            options={mobileOption}
+            styles={mobileOptionStyles}
+          />
         ) : (
           <p>Loading data...</p>
         )}
