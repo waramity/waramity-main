@@ -116,37 +116,7 @@ const mobileOptionStyles: StylesConfig<MobileOption> = {
           : undefined,
       },
     };
-    //   return {
-    //     ...styles,
-    //     backgroundColor: isDisabled
-    //       ? undefined
-    //       : isSelected
-    //       ? data.color
-    //       : isFocused
-    //       ? color.alpha(0.1).css()
-    //       : undefined,
-    //     color: isDisabled
-    //       ? "#ccc"
-    //       : isSelected
-    //       ? chroma.contrast(color, "white") > 2
-    //         ? "white"
-    //         : "black"
-    //       : data.color,
-    //     cursor: isDisabled ? "not-allowed" : "default",
-    //
-    //     ":active": {
-    //       ...styles[":active"],
-    //       backgroundColor: !isDisabled
-    //         ? isSelected
-    //           ? data.color
-    //           : color.alpha(0.3).css()
-    //         : undefined,
-    //     },
-    //   };
   },
-  // input: (styles) => ({ ...styles, ...dot() }),
-  // placeholder: (styles) => ({ ...styles, ...dot("#ccc") }),
-  // singleValue: (styles, { data }) => ({ ...styles, ...dot(data.color) }),
 };
 
 const SkillCard: React.FC = () => {
@@ -201,7 +171,7 @@ const SkillCard: React.FC = () => {
   };
 
   const handleSelectChange = (value: any) => {
-    console.log(value);
+    setCurrentCard({ labels: value.labels, images: value.images });
   };
 
   if (viewportWidth < 768) {
@@ -213,22 +183,28 @@ const SkillCard: React.FC = () => {
             options={mobileOption}
             styles={mobileOptionStyles}
             onChange={handleSelectChange}
-            className="mx-2 z-3"
+            className="mx-3 mb-5 z-3"
           />
         ) : (
           <p>Loading data...</p>
         )}
 
         <Swiper
-          spaceBetween={50}
-          slidesPerView={3}
+          spaceBetween={30}
+          slidesPerView={2}
+          centeredSlides={true}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          className="px-4"
         >
           {currentCard ? (
             currentCard.labels.map((label: string, i: number) => (
-              <SwiperSlide key={i}>
-                {"/static/data/main/" + currentCard.images[i]} {label}
+              <SwiperSlide key={i} className="bg-dark rounded-4 p-3">
+                <img
+                  src={"/static/data/main/" + currentCard.images[i]}
+                  className="w-100 mb-4"
+                />
+                <p className="text-center display-6 fs-3">{label}</p>
               </SwiperSlide>
             ))
           ) : (
