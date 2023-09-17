@@ -91,6 +91,8 @@ interface CurrentCard {
 interface MobileOption {
   value: string;
   label: string;
+  images: string[];
+  labels: string[];
 }
 
 const mobileOptionStyles: StylesConfig<MobileOption> = {
@@ -150,13 +152,13 @@ const mobileOptionStyles: StylesConfig<MobileOption> = {
 const SkillCard: React.FC = () => {
   const [cardsData, setCardsData] = useState<CardData[]>();
   const [currentCard, setCurrentCard] = useState<CurrentCard>();
-  const [mobileOption, setMobileOption] = useState<MobileOption[]>();
-
   const [active, setActive] = useState<number>(0);
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  const [mobileOption, setMobileOption] = useState<MobileOption[]>();
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
     fetch("/en/get_skill_nav")
@@ -169,17 +171,6 @@ const SkillCard: React.FC = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const handleCardChange = (card: CurrentCard, index: number) => {
-    setCurrentCard(card);
-    setActive(0);
-
-    setActiveIndex(index);
-  };
-
-  const handleResize = () => {
-    setViewportWidth(window.innerWidth);
-  };
-
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
@@ -188,13 +179,29 @@ const SkillCard: React.FC = () => {
     };
   }, []);
 
+  const handleCardChange = (card: CurrentCard, index: number) => {
+    setCurrentCard(card);
+    setActive(0);
+    setActiveIndex(index);
+  };
+
+  const handleResize = () => {
+    setViewportWidth(window.innerWidth);
+  };
+
   const generateMobileOption = (data: CardData[]) => {
     const mobileOption = data.map((item, i) => ({
       value: item.title,
       label: item.title,
+      images: item.images,
+      labels: item.labels,
     }));
 
     setMobileOption(mobileOption);
+  };
+
+  const handleSelectChange = (value: any) => {
+    console.log(value);
   };
 
   if (viewportWidth < 768) {
@@ -205,20 +212,28 @@ const SkillCard: React.FC = () => {
             defaultValue={mobileOption[0]}
             options={mobileOption}
             styles={mobileOptionStyles}
+            onChange={handleSelectChange}
+            className="mx-2 z-3"
           />
         ) : (
           <p>Loading data...</p>
         )}
+
         <Swiper
           spaceBetween={50}
           slidesPerView={3}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          {currentCard ? (
+            currentCard.labels.map((label: string, i: number) => (
+              <SwiperSlide key={i}>
+                {"/static/data/main/" + currentCard.images[i]} {label}
+              </SwiperSlide>
+            ))
+          ) : (
+            <p>Loading data...</p>
+          )}
         </Swiper>
       </div>
     );
