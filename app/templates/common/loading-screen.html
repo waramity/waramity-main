@@ -79,7 +79,9 @@
     // Hide the loading screen
     setTimeout(function () {
       var loadingScreen = document.getElementById("loading-screen");
-      loadingScreen.style.display = "none";
+      if (loadingScreen) {
+        loadingScreen.remove();
+      }
 
       // Show the main content
       var mainContent = document.getElementById("main-content");
