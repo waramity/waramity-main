@@ -13,4 +13,10 @@ jobs:
         run: |
           # Use the 'ls' command to list files in the repository
           ls -a
-      - run: bash docker-run.sh 
+      # - run: bash docker-run.sh 
+
+      - name: Run script file
+          run: |
+            chmod +x ./docker-run.sh
+            ./docker-run.sh
+          shell: bash 
