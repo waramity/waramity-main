@@ -3,14 +3,14 @@ run-name: Testing waramity main website by ${{ github.actor }} 🚀
 on:
   push:
     branches:
-      - master
+      - github-actions 
 jobs:
   Deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: bash docker-run.sh 
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - name: List files
         run: |
           # Use the 'ls' command to list files in the repository
           ls -R
+      - run: bash docker-run.sh 
