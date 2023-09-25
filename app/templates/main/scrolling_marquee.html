@@ -4,7 +4,6 @@
     height: 0.5vw;
     background-color: #fff;
     display: flex;
-
     position: absolute;
     justify-content: center;
     align-items: center;
@@ -37,7 +36,7 @@
   .spacer > h1 {
     color: #14151a;
     width: 100vw;
-    font-size: 4em;
+    font-size: 3em;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
   }
@@ -112,9 +111,13 @@
     }
   }
 
-  @media screen and (max-width: 1023px) and (min-width: 768px) {
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
     .spacer {
       display: none;
+    }
+
+    .spacer h1 {
+      font-size: 2em;
     }
   }
 </style>
