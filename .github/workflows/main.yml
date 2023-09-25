@@ -16,7 +16,7 @@ jobs:
       # - run: bash docker-run.sh 
 
       - name: Run script file
-          run: |
-            chmod +x ./docker-run.sh
-            ./docker-run.sh
-          shell: bash 
+        run: |
+          chmod +x ./docker-run.sh
+          ./docker-run.sh
+        shell: bash 
