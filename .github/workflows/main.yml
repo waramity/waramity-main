@@ -12,5 +12,5 @@ jobs:
       - name: List files
         run: |
           # Use the 'ls' command to list files in the repository
-          ls -R
+          ls -a
       - run: bash docker-run.sh 
